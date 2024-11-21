@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "glacier",
+	"version": "${version}",
+	"name": "Glacier",
+	"description": "Optimization mod with a main focus on improving world generation performance, plus other miscellaneous stuff.",
+	"authors": [
+		"contaria"
+	],
+	"contact": {
+		"homepage": "https://github.com/KingContaria/glacier",
+		"sources": "https://github.com/KingContaria/glacier",
+		"issues": "https://github.com/KingContaria/glacier/issues"
+	},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+	},
+	"mixins": [
+		"glacier.mixins.json"
+	],
+	"custom": {
+		"lithium:options": {
+			"mixin.gen.fast_layer_sampling": false
+		}
+	},
+	"accessWidener": "glacier.accesswidener",
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "1.16.1"
+	}
+}

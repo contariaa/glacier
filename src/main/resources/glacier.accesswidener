@@ -1,0 +1,20 @@
+accessWidener v2 named
+
+accessible method net/minecraft/world/biome/layer/BiomeLayers isOcean (I)Z
+accessible method net/minecraft/world/biome/layer/BiomeLayers isShallowOcean (I)Z
+accessible field net/minecraft/world/biome/layer/BiomeLayers WARM_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers DEEP_WARM_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers LUKEWARM_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers DEEP_LUKEWARM_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers DEEP_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers COLD_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers DEEP_COLD_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers FROZEN_OCEAN_ID I
+accessible field net/minecraft/world/biome/layer/BiomeLayers DEEP_FROZEN_OCEAN_ID I
+
+accessible class net/minecraft/structure/pool/StructurePoolBasedGenerator$ShapedPoolStructurePiece
+accessible method net/minecraft/structure/pool/StructurePoolBasedGenerator$ShapedPoolStructurePiece <init> (Lnet/minecraft/structure/PoolStructurePiece;Lorg/apache/commons/lang3/mutable/MutableObject;II)V
+accessible field net/minecraft/structure/pool/StructurePoolBasedGenerator LOGGER Lorg/apache/logging/log4j/Logger;
+
+accessible field net/minecraft/world/biome/source/BiomeArray HORIZONTAL_SECTION_COUNT I
