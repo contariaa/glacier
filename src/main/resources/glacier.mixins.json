@@ -116,6 +116,7 @@
     "memory.empty_arrays.LootPoolEntryMixin",
     "memory.empty_arrays.LootPoolMixin",
     "memory.empty_arrays.LootTableMixin",
+    "memory.goal_selectors.MobEntityMixin",
     "memory.mc_namespace.IdentifierMixin",
     "memory.model.voxel_array.FenceBlockMixin",
     "memory.model.voxel_array.HorizontalConnectingBlockMixin",
