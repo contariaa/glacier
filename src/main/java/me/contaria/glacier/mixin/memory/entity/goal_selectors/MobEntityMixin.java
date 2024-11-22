@@ -1,4 +1,4 @@
-package me.contaria.glacier.mixin.memory.goal_selectors;
+package me.contaria.glacier.mixin.memory.entity.goal_selectors;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
