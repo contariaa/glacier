@@ -58,6 +58,7 @@ public class GlacierConfig {
         this.addRule("memory.entity");
         this.addRule("memory.entity.goal_selectors");
         this.addRule("memory.entity.item_stack");
+        this.addRule("memory.entity.navigation");
         this.addRule("memory.mc_namespace");
         this.addRule("memory.model");
         this.addRule("memory.model.model_transformation");
