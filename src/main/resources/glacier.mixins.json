@@ -112,6 +112,7 @@
     "memory.chunk.structure_references.WorldChunkMixin",
     "memory.empty_arrays.AdvancementRewardsMixin",
     "memory.empty_arrays.ConditionalLootFunctionMixin",
+    "memory.empty_arrays.LeafEntryMixin",
     "memory.empty_arrays.LootPoolEntryMixin",
     "memory.empty_arrays.LootPoolMixin",
     "memory.empty_arrays.LootTableMixin",
