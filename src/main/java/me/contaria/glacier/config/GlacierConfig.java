@@ -55,7 +55,9 @@ public class GlacierConfig {
         this.addRule("memory.chunk.structure_references");
         this.addRule("memory.deduplicate_mappings");
         this.addRule("memory.empty_arrays");
-        this.addRule("memory.goal_selectors");
+        this.addRule("memory.entity");
+        this.addRule("memory.entity.goal_selectors");
+        this.addRule("memory.entity.item_stack");
         this.addRule("memory.mc_namespace");
         this.addRule("memory.model");
         this.addRule("memory.model.model_transformation");
