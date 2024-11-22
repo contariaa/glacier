@@ -143,6 +143,7 @@
     "memory.model.quad_direction.ModelPart$QuadMixin",
     "memory.model.sprite_animation.SpriteMixin",
     "memory.trim_lists.model.ModelOverrideListMixin",
+    "memory.trim_lists.model.MultipartBakedModelMixin",
     "memory.trim_lists.model.WeightedBakedModelMixin",
     "memory.trim_lists.registry.BlockModelsMixin",
     "memory.trim_lists.renderer.EntityRenderDispatcherMixin",

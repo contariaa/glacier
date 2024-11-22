@@ -22,7 +22,7 @@ public abstract class ModelOverrideListMixin {
             method = "<init>(Lnet/minecraft/client/render/model/ModelLoader;Lnet/minecraft/client/render/model/json/JsonUnbakedModel;Ljava/util/function/Function;Ljava/util/List;)V",
             at = @At("TAIL")
     )
-    private void test(CallbackInfo ci) {
+    private void trimOverrides(CallbackInfo ci) {
         ((ArrayList<?>) this.overrides).trimToSize();
     }
 }
