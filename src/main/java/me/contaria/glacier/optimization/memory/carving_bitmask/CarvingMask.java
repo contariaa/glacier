@@ -1,4 +1,4 @@
-package me.contaria.glacier.optimization.allocation.carving_bitmask;
+package me.contaria.glacier.optimization.memory.carving_bitmask;
 
 import org.jetbrains.annotations.NotNull;
 
