@@ -1,4 +1,4 @@
-package me.contaria.glacier.mixin.allocation.carving_bitmask;
+package me.contaria.glacier.mixin.memory.chunk.carving_bitmask;
 
 import me.contaria.glacier.optimization.allocation.carving_bitmask.CarvingMask;
 import net.minecraft.world.chunk.ProtoChunk;

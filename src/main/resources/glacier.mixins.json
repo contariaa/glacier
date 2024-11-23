@@ -39,7 +39,7 @@
     "allocation.carver.CarverMixin",
     "allocation.carver.CaveCarverMixin",
     "allocation.carver.RavineCarverMixin",
-    "allocation.carving_bitmask.ProtoChunkMixin",
+    "memory.chunk.carving_bitmask.ProtoChunkMixin",
     "allocation.direction.AbstractRedstoneGateBlockMixin",
     "allocation.direction.AffineTransformationsMixin",
     "allocation.direction.AmphibiousPathNodeMakerMixin",

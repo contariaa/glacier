@@ -30,7 +30,6 @@ public class GlacierConfig {
         this.addRule("allocation.blockpos.structure");
         this.addRule("allocation.blockpos.world");
         this.addRule("allocation.carver");
-        this.addRule("allocation.carving_bitmask");
         this.addRule("allocation.direction");
 
         this.addRule("chunk");
@@ -50,6 +49,7 @@ public class GlacierConfig {
         this.addRule("memory");
         this.addRule("memory.chunk");
         this.addRule("memory.chunk.biome_array_data");
+        this.addRule("memory.chunk.carving_bitmask");
         this.addRule("memory.chunk.chunk_sections");
         this.addRule("memory.chunk.entity_sections");
         this.addRule("memory.chunk.structure_references");
