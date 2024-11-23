@@ -2,6 +2,8 @@ package me.contaria.glacier.mixin.memory.entity.navigation;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import me.contaria.glacier.optimization.memory.navigation.DummyMobNavigation;
+import me.contaria.glacier.optimization.memory.navigation.DummySwimNavigation;
 import net.minecraft.entity.ai.pathing.MobNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.mob.DrownedEntity;
@@ -22,7 +24,7 @@ public abstract class DrownedEntityMixin {
     )
     private SwimNavigation noClientSideSwimNavigation(MobEntity entity, World world, Operation<SwimNavigation> original) {
         if (world.isClient) {
-            return null;
+            return DummySwimNavigation.INSTANCE;
         }
         return original.call(entity, world);
     }
@@ -36,7 +38,7 @@ public abstract class DrownedEntityMixin {
     )
     private MobNavigation noClientSideMobNavigation(MobEntity entity, World world, Operation<MobNavigation> original) {
         if (world.isClient) {
-            return null;
+            return DummyMobNavigation.INSTANCE;
         }
         return original.call(entity, world);
     }

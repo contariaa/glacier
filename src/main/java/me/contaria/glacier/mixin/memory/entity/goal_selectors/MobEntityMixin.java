@@ -2,6 +2,7 @@ package me.contaria.glacier.mixin.memory.entity.goal_selectors;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import me.contaria.glacier.optimization.memory.goal_selectors.DummyGoalSelector;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.GoalSelector;
 import net.minecraft.entity.mob.MobEntity;
@@ -14,7 +15,7 @@ import java.util.function.Supplier;
 
 /**
  * Minecraft creates two {@link GoalSelector}'s for every entity.
- * Because they are only used serverside, we return null on the client instead.
+ * Because they are only used serverside, we return a dummy instance on the client instead.
  */
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin {
@@ -28,7 +29,7 @@ public abstract class MobEntityMixin {
     )
     private GoalSelector noClientSideGoalSelector(Supplier<Profiler> profiler, Operation<GoalSelector> original, EntityType<? extends MobEntity> entityType, World world) {
         if (world.isClient) {
-            return null;
+            return DummyGoalSelector.INSTANCE;
         }
         return original.call(profiler);
     }
