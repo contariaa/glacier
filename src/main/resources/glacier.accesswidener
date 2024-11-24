@@ -21,4 +21,5 @@ accessible field net/minecraft/world/biome/source/BiomeArray HORIZONTAL_SECTION_
 
 extendable class net/minecraft/structure/Structure$PalettedBlockInfoList
 accessible method net/minecraft/structure/Structure$PalettedBlockInfoList <init> (Ljava/util/List;)V
+accessible field net/minecraft/structure/Structure$PalettedBlockInfoList infos Ljava/util/List;
 accessible field net/minecraft/structure/Structure$PalettedBlockInfoList blockToInfos Ljava/util/Map;
