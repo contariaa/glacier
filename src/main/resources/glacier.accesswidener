@@ -18,3 +18,7 @@ accessible method net/minecraft/structure/pool/StructurePoolBasedGenerator$Shape
 accessible field net/minecraft/structure/pool/StructurePoolBasedGenerator LOGGER Lorg/apache/logging/log4j/Logger;
 
 accessible field net/minecraft/world/biome/source/BiomeArray HORIZONTAL_SECTION_COUNT I
+
+extendable class net/minecraft/structure/Structure$PalettedBlockInfoList
+accessible method net/minecraft/structure/Structure$PalettedBlockInfoList <init> (Ljava/util/List;)V
+accessible field net/minecraft/structure/Structure$PalettedBlockInfoList blockToInfos Ljava/util/Map;

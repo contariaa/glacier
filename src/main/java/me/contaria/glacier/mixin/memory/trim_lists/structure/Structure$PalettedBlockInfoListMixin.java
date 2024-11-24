@@ -17,6 +17,8 @@ public abstract class Structure$PalettedBlockInfoListMixin {
             at = @At("TAIL")
     )
     private void trimInfos(List<?> infos, CallbackInfo ci) {
-        ((ArrayList<?>) infos).trimToSize();
+        if (infos instanceof ArrayList) {
+            ((ArrayList<?>) infos).trimToSize();
+        }
     }
 }
