@@ -17,6 +17,8 @@ public class DummyMobNavigation extends MobNavigation {
 
     @Override
     public void setCanSwim(boolean canSwim) {
+        // called client-side
+        // see BeeEntity, ParrotEntity, VillagerEntity, WitherEntity
     }
 
     @Override
@@ -31,6 +33,8 @@ public class DummyMobNavigation extends MobNavigation {
 
     @Override
     public void setCanPathThroughDoors(boolean canPathThroughDoors) {
+        // called client-side
+        // see PiglinEntity, VindicatorEntity, ZombieEntity
     }
 
     @Override
@@ -97,7 +101,9 @@ public class DummyMobNavigation extends MobNavigation {
 
     @Override
     public boolean isIdle() {
-        throw new UnsupportedOperationException();
+        // called client-side
+        // see LookControl#tick
+        return super.isIdle();
     }
 
     @Override
@@ -137,6 +143,8 @@ public class DummyMobNavigation extends MobNavigation {
 
     @Override
     protected PathNodeNavigator createPathNodeNavigator(int range) {
+        // set PathNodeNavigator to null
+        // see EntityNavigation#<init>
         return null;
     }
 

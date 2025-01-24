@@ -122,6 +122,8 @@ public class DummySwimNavigation extends SwimNavigation {
 
     @Override
     protected PathNodeNavigator createPathNodeNavigator(int range) {
+        // set PathNodeNavigator to null
+        // see EntityNavigation#<init>
         return null;
     }
 
