@@ -16,7 +16,7 @@ import java.util.function.Predicate;
  * Since a lot of blocks only differ in their position, we can compress this data into a paletted view.
  * <p>
  * The data is stored as the compressed position (since structures usually don't span the integer limit we can get away with way less bits)
- * followed by the index of the {@link MutableInfo} in the palette.
+ * followed by the index of the {@link BlockState} and {@link CompoundTag} in their respective palettes.
  * <p>
  * {@link Structure.StructureBlockInfo#pos} is a {@link BlockPos.Mutable} and set during iteration.
  */
