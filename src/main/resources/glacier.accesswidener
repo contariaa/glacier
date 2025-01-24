@@ -23,3 +23,5 @@ extendable class net/minecraft/structure/Structure$PalettedBlockInfoList
 accessible method net/minecraft/structure/Structure$PalettedBlockInfoList <init> (Ljava/util/List;)V
 accessible field net/minecraft/structure/Structure$PalettedBlockInfoList infos Ljava/util/List;
 accessible field net/minecraft/structure/Structure$PalettedBlockInfoList blockToInfos Ljava/util/Map;
+accessible field net/minecraft/structure/Structure$StructureBlockInfo state Lnet/minecraft/block/BlockState;
+accessible field net/minecraft/structure/Structure$StructureBlockInfo tag Lnet/minecraft/nbt/CompoundTag;
