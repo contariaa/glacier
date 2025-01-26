@@ -5,7 +5,9 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "minMixinExtrasVersion": "0.5.0-beta.4",
+  "mixinextras": {
+    "minVersion": "0.5.0-beta.5"
+  },
   "plugin": "me.contaria.glacier.config.GlacierMixinConfigPlugin",
   "mixins": [
     "allocation.blockpos.block.CactusBlockMixin",
