@@ -5,6 +5,9 @@ import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.Structure;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
 
@@ -154,6 +157,84 @@ public class GlacierStructureBlockInfoList implements List<Structure.StructureBl
             return this;
         }
         return new GlacierFilteredStructureBlockInfoList(this, entries.toIntArray());
+    }
+
+    public List<Structure.StructureBlockInfo> filterForSLO(BlockBox blockBox, BlockMirror mirror, BlockRotation rotation, BlockPos pivot, BlockPos offset) {
+        int bitsPerEntry = this.bitsPerEntry;
+        if (bitsPerEntry == 0) {
+            return this;
+        }
+
+        int xOffset = this.xBits;
+        int yOffset = xOffset + this.yBits;
+        int xMask = (1 << this.xBits) - 1;
+        int yMask = (1 << this.yBits) - 1;
+        int zMask = (1 << this.zBits) - 1;
+
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+        IntList entries = new IntArrayList();
+        for (int i = 0; i < this.size; i++) {
+            int entriesPerLong = 64 / bitsPerEntry;
+            long entry = this.data[i / entriesPerLong] >>> ((i % entriesPerLong) * bitsPerEntry);
+
+            int x = (int) (entry & xMask);
+            int y = (int) (entry >> xOffset & yMask);
+            int z = (int) (entry >> yOffset & zMask);
+
+            mutable.set(x, y, z);
+            transform(mutable, mirror, rotation, pivot);
+            mutable.move(offset.getX(), offset.getY(), offset.getZ());
+
+            if (blockBox.contains(mutable)) {
+                entries.add(i);
+            }
+        }
+
+        if (entries.isEmpty()) {
+            if (this.isEmpty()) {
+                return Collections.emptyList();
+            }
+            entries.add(0);
+        }
+        if (this.size == entries.size()) {
+            return this;
+        }
+        return new GlacierFilteredStructureBlockInfoList(this, entries.toIntArray());
+    }
+
+    // copy of StructureTemplateOptimizer#transform
+    private static void transform(BlockPos.Mutable mutable, BlockMirror mirror, BlockRotation rotation, BlockPos pivot) {
+        int x = mutable.getX();
+        int y = mutable.getY();
+        int z = mutable.getZ();
+        boolean flag = true;
+        switch (mirror) {
+            case LEFT_RIGHT:
+                z = -z;
+                break;
+            case FRONT_BACK:
+                x = -x;
+                break;
+            default:
+                flag = false;
+        }
+
+        int pivotX = pivot.getX();
+        int pivotZ = pivot.getZ();
+        switch (rotation) {
+            case COUNTERCLOCKWISE_90:
+                mutable.set(pivotX - pivotZ + z, y, pivotX + pivotZ - x);
+                return;
+            case CLOCKWISE_90:
+                mutable.set(pivotX + pivotZ - z, y, pivotZ - pivotX + x);
+                return;
+            case CLOCKWISE_180:
+                mutable.set(pivotX + pivotX - x, y, pivotZ + pivotZ - z);
+                return;
+            default:
+                if (flag) mutable.set(x, y, z);
+        }
     }
 
     @Override

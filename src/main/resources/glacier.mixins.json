@@ -70,6 +70,7 @@
     "chunk.create_future.ThreadedAnvilChunkStorageMixin",
     "chunk.initial_capacity.ThreadedAnvilChunkStorageMixin",
     "chunk.thread_executor.ThreadExecutorMixin",
+    "compat.structure_layout_optimizer.StructureLayoutOptimizerMixin",
     "gen.bedrock.ProtoChunkMixin",
     "gen.bedrock.SurfaceChunkGeneratorMixin",
     "gen.biome_layers.AddBambooJungleLayerMixin",

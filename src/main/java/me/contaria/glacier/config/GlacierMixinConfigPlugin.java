@@ -29,7 +29,11 @@ public class GlacierMixinConfigPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (!this.config.getRule(mixinClassName.substring(this.mixinPackage.length() + 1))) {
+        String mixin = mixinClassName.substring(this.mixinPackage.length() + 1);
+        if (mixin.startsWith("compat.")) {
+            return FabricLoader.getInstance().isModLoaded(mixin.substring(7, mixin.indexOf('.', 7)));
+        }
+        if (!this.config.getRule(mixin)) {
             LOGGER.warn("Disabling mixin '{}' disabled by Glacier config.", mixinClassName);
             return false;
         }
