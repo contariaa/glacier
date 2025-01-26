@@ -23,11 +23,13 @@ public abstract class StructureLayoutOptimizerMixin {
             method = "getStructureBlockInfosInBounds",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/structure/StructurePlacementData;getMirror()Lnet/minecraft/util/BlockMirror;"
+                    target = "Lnet/minecraft/structure/StructurePlacementData;getMirror()Lnet/minecraft/util/BlockMirror;",
+                    remap = true
             ),
+            remap = false,
             cancellable = true
     )
-    private void filterGlacierPalettedBlockInfoList(Structure.PalettedBlockInfoList palette, BlockPos offset, StructurePlacementData placement, CallbackInfoReturnable<List<Structure.StructureBlockInfo>> cir) {
+    private static void filterGlacierPalettedBlockInfoList(Structure.PalettedBlockInfoList palette, BlockPos offset, StructurePlacementData placement, CallbackInfoReturnable<List<Structure.StructureBlockInfo>> cir) {
         if (palette instanceof GlacierPalettedBlockInfoList) {
             cir.setReturnValue(((GlacierStructureBlockInfoList) palette.getAll()).filterForSLO(
                     placement.getBoundingBox(),
