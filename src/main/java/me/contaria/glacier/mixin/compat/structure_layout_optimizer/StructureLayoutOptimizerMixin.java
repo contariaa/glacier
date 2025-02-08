@@ -1,7 +1,7 @@
 package me.contaria.glacier.mixin.compat.structure_layout_optimizer;
 
-import me.contaria.glacier.optimization.memory.structure_block_infos.GlacierPalettedBlockInfoList;
-import me.contaria.glacier.optimization.memory.structure_block_infos.GlacierStructureBlockInfoList;
+import me.contaria.glacier.optimization.memory.structures.GlacierPalettedBlockInfoList;
+import me.contaria.glacier.optimization.memory.structures.GlacierStructureBlockInfoList;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.util.math.BlockPos;

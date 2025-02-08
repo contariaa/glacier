@@ -1,9 +1,9 @@
-package me.contaria.glacier.mixin.memory.structures.structure_block_infos;
+package me.contaria.glacier.mixin.memory.structures;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import me.contaria.glacier.optimization.memory.structure_block_infos.GlacierStructureBlockInfoIterator;
-import me.contaria.glacier.optimization.memory.structure_block_infos.MutableStructureBlockInfo;
+import me.contaria.glacier.optimization.memory.structures.GlacierStructureBlockInfoIterator;
+import me.contaria.glacier.optimization.memory.structures.MutableStructureBlockInfo;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.structure.Structure;

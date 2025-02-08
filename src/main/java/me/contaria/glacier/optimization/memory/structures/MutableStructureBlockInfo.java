@@ -1,4 +1,4 @@
-package me.contaria.glacier.optimization.memory.structure_block_infos;
+package me.contaria.glacier.optimization.memory.structures;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundTag;

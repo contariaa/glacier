@@ -1,10 +1,10 @@
-package me.contaria.glacier.mixin.memory.structures.structure_block_infos;
+package me.contaria.glacier.mixin.memory.structures;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import me.contaria.glacier.Glacier;
-import me.contaria.glacier.optimization.memory.structure_block_infos.GlacierCompressionException;
-import me.contaria.glacier.optimization.memory.structure_block_infos.GlacierPalettedBlockInfoList;
+import me.contaria.glacier.optimization.memory.structures.GlacierCompressionException;
+import me.contaria.glacier.optimization.memory.structures.GlacierPalettedBlockInfoList;
 import net.minecraft.structure.Structure;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

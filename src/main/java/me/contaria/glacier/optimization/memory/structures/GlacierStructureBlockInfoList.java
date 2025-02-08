@@ -1,4 +1,4 @@
-package me.contaria.glacier.optimization.memory.structure_block_infos;
+package me.contaria.glacier.optimization.memory.structures;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;

@@ -67,8 +67,6 @@ public class GlacierConfig {
         this.addRule("memory.model.sprite_animation");
         this.addRule("memory.model.voxel_array");
         this.addRule("memory.structures");
-        this.addRule("memory.structures.compound_tags");
-        this.addRule("memory.structures.structure_block_infos");
         this.addRule("memory.trim_lists");
     }
 
