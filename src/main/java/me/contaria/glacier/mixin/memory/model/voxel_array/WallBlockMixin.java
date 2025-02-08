@@ -5,11 +5,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.enums.WallShape;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -20,36 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Reuse the same shape instances for all wall blocks.
+ */
 @Mixin(WallBlock.class)
 public abstract class WallBlockMixin extends Block {
-
-    @Shadow
-    @Final
-    public static BooleanProperty UP;
-
-    @Shadow
-    @Final
-    public static EnumProperty<WallShape> EAST_SHAPE;
-
-    @Shadow
-    @Final
-    public static EnumProperty<WallShape> NORTH_SHAPE;
-
-    @Shadow
-    @Final
-    public static EnumProperty<WallShape> WEST_SHAPE;
-
-    @Shadow
-    @Final
-    public static EnumProperty<WallShape> SOUTH_SHAPE;
-
-    @Shadow
-    @Final
-    public static BooleanProperty WATERLOGGED;
-
     @Unique
     private static final List<VoxelShape> SHAPES = getShapes(4.0F, 3.0F, 16.0F, 0.0F, 14.0F, 16.0F);
-
     @Unique
     private static final List<VoxelShape> COLLISION_SHAPES = getShapes(4.0F, 3.0F, 24.0F, 0.0F, 24.0F, 24.0F);
 
@@ -91,20 +65,20 @@ public abstract class WallBlockMixin extends Block {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
 
         int i = 0;
-        for (Boolean boolean_ : UP.getValues()) {
-            for (WallShape wallShape : EAST_SHAPE.getValues()) {
-                for (WallShape wallShape2 : NORTH_SHAPE.getValues()) {
-                    for (WallShape wallShape3 : WEST_SHAPE.getValues()) {
-                        for (WallShape wallShape4 : SOUTH_SHAPE.getValues()) {
+        for (Boolean boolean_ : WallBlock.UP.getValues()) {
+            for (WallShape wallShape : WallBlock.EAST_SHAPE.getValues()) {
+                for (WallShape wallShape2 : WallBlock.NORTH_SHAPE.getValues()) {
+                    for (WallShape wallShape3 : WallBlock.WEST_SHAPE.getValues()) {
+                        for (WallShape wallShape4 : WallBlock.SOUTH_SHAPE.getValues()) {
                             VoxelShape shape = shapes.get(i);
                             BlockState blockState = this.getDefaultState()
-                                    .with(UP, boolean_)
-                                    .with(EAST_SHAPE, wallShape)
-                                    .with(WEST_SHAPE, wallShape3)
-                                    .with(NORTH_SHAPE, wallShape2)
-                                    .with(SOUTH_SHAPE, wallShape4);
-                            builder.put(blockState.with(WATERLOGGED, Boolean.FALSE), shape);
-                            builder.put(blockState.with(WATERLOGGED, Boolean.TRUE), shape);
+                                    .with(WallBlock.UP, boolean_)
+                                    .with(WallBlock.EAST_SHAPE, wallShape)
+                                    .with(WallBlock.WEST_SHAPE, wallShape3)
+                                    .with(WallBlock.NORTH_SHAPE, wallShape2)
+                                    .with(WallBlock.SOUTH_SHAPE, wallShape4);
+                            builder.put(blockState.with(WallBlock.WATERLOGGED, Boolean.FALSE), shape);
+                            builder.put(blockState.with(WallBlock.WATERLOGGED, Boolean.TRUE), shape);
                         }
                     }
                 }

@@ -7,6 +7,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Reuse existing {@link Vector3f} constants instead of allocating new instances.
+ */
 @Mixin(targets = "net/minecraft/client/model/ModelPart$Quad")
 public abstract class ModelPart$QuadMixin {
 

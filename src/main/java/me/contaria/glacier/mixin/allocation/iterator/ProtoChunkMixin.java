@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import java.util.Collections;
 import java.util.Map;
 
+/**
+ * Reduces allocation rate of unmodifiable map wrappers and empty iterators during world generation.
+ */
 @Mixin(ProtoChunk.class)
 public abstract class ProtoChunkMixin {
 

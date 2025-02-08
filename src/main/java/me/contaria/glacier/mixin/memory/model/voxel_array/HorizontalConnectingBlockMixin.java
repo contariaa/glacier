@@ -8,9 +8,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
+/**
+ * Reuse the same shape instances for all fences and glass panes.
+ */
 @Mixin(HorizontalConnectingBlock.class)
 public abstract class HorizontalConnectingBlockMixin {
-
     @Unique
     private static VoxelShape[] PANE_SHAPES;
 

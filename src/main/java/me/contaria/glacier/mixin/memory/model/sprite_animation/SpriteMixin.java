@@ -13,9 +13,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Reuse the same {@link AnimationResourceMetadata} for the default animation metadata.
+ */
 @Mixin(Sprite.class)
 public abstract class SpriteMixin {
-
     @Unique
     private static final AnimationResourceMetadata DEFAULT_ANIMATION = new AnimationResourceMetadata(Collections.singletonList(new AnimationFrameResourceMetadata(0, -1)), 16, 16, 1, false);
 

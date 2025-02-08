@@ -8,6 +8,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
+/**
+ * Reuse the same shapes for all fences.
+ */
 @Mixin(FenceBlock.class)
 public abstract class FenceBlockMixin {
 

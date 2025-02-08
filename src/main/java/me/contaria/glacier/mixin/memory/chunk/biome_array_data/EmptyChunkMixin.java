@@ -14,6 +14,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.function.Consumer;
 
+/**
+ * @see GlacierBiomeArray
+ */
 @Mixin(EmptyChunk.class)
 public abstract class EmptyChunkMixin {
     @Unique

@@ -7,6 +7,9 @@ import net.minecraft.client.render.model.json.Transformation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+/**
+ * Reuse existing {@link ModelTransformation#NONE} instead of creating new instances.
+ */
 @Mixin(ModelTransformation.Deserializer.class)
 public abstract class ModelTransformation$DeserializerMixin {
 

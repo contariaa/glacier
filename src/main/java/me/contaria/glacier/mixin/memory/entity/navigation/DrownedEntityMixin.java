@@ -12,6 +12,9 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+/**
+ * @see MobEntityMixin
+ */
 @Mixin(DrownedEntity.class)
 public abstract class DrownedEntityMixin {
 

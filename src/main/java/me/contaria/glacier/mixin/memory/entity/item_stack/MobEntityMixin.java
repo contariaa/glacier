@@ -20,6 +20,7 @@ public abstract class MobEntityMixin {
     )
     private ItemStack deduplicateEmptyItemStacks(CompoundTag tag, Operation<ItemStack> original) {
         if (tag.isEmpty()) {
+            System.out.println("test");
             return ItemStack.EMPTY;
         }
         return original.call(tag);

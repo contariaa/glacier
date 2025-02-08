@@ -8,6 +8,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * @see GlacierBiomeArray
+ */
 @Mixin(ChunkDataS2CPacket.class)
 public abstract class ChunkDataS2CPacketMixin {
 
