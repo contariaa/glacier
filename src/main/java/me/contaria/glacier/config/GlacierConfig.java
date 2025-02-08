@@ -31,6 +31,7 @@ public class GlacierConfig {
         this.addRule("allocation.blockpos.world");
         this.addRule("allocation.carver");
         this.addRule("allocation.direction");
+        this.addRule("allocation.iterator");
 
         this.addRule("chunk");
         this.addRule("chunk.create_future");
