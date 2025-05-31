@@ -140,7 +140,6 @@
     "allocation.direction.BlockModelRenderer$NeighborOrientationMixin",
     "allocation.direction.ChunkBuilder$BuiltChunkMixin",
     "allocation.direction.ChunkOcclusionDataMixin",
-    "memory.deduplicate_mappings.MinecraftClientMixin",
     "memory.model.model_transformation.JsonUnbakedModelMixin",
     "memory.model.model_transformation.ModelTransformation$DeserializerMixin",
     "memory.model.quad_direction.ModelPart$QuadMixin",
@@ -153,8 +152,5 @@
     "memory.trim_lists.renderer.LivingEntityRendererRendererMixin",
     "memory.trim_lists.sound.SoundManager$SoundListMixin",
     "memory.trim_lists.sound.WeightedSoundSetMixin"
-  ],
-  "server": [
-    "memory.deduplicate_mappings.MinecraftDedicatedServerMixin"
   ]
 }

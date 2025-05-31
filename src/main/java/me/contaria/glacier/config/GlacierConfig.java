@@ -54,7 +54,6 @@ public class GlacierConfig {
         this.addRule("memory.chunk.chunk_sections");
         this.addRule("memory.chunk.entity_sections");
         this.addRule("memory.chunk.structure_references");
-        this.addRule("memory.deduplicate_mappings");
         this.addRule("memory.empty_arrays");
         this.addRule("memory.entity");
         this.addRule("memory.entity.goal_selectors");
