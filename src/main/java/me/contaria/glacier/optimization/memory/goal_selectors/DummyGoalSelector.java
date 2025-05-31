@@ -6,6 +6,10 @@ import net.minecraft.entity.ai.goal.PrioritizedGoal;
 
 import java.util.stream.Stream;
 
+/**
+ * A no-op, unmodifiable subclass of {@link GoalSelector}, used by client-side entities who do not make use of it anyway.
+ * Throws {@link UnsupportedOperationException} for any methods that shouldn't be called by a client-side entity.
+ */
 public class DummyGoalSelector extends GoalSelector {
     public static final DummyGoalSelector INSTANCE = new DummyGoalSelector();
 

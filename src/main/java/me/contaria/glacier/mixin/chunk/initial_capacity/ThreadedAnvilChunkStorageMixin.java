@@ -26,7 +26,7 @@ public abstract class ThreadedAnvilChunkStorageMixin {
             )
     )
     private Long2ObjectLinkedOpenHashMap<?> setCapacityForChunkHolders() {
-        return new Long2ObjectLinkedOpenHashMap<>(500);
+        return new Long2ObjectLinkedOpenHashMap<>(512);
     }
 
     @Redirect(
@@ -39,7 +39,7 @@ public abstract class ThreadedAnvilChunkStorageMixin {
             )
     )
     private LongOpenHashSet setCapacityForLoadedChunks() {
-        return new LongOpenHashSet(500);
+        return new LongOpenHashSet(512);
     }
 
     @Redirect(
@@ -51,7 +51,7 @@ public abstract class ThreadedAnvilChunkStorageMixin {
             )
     )
     private Int2ObjectOpenHashMap<?> setCapacityForEntityTrackers() {
-        return new Int2ObjectOpenHashMap<>(100);
+        return new Int2ObjectOpenHashMap<>(128);
     }
 
     @Redirect(
@@ -63,6 +63,6 @@ public abstract class ThreadedAnvilChunkStorageMixin {
             )
     )
     private Long2ByteOpenHashMap setCapacityForField_23786() {
-        return new Long2ByteOpenHashMap(500);
+        return new Long2ByteOpenHashMap(512);
     }
 }

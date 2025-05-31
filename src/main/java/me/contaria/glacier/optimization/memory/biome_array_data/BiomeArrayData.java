@@ -8,24 +8,42 @@ import net.minecraft.world.biome.source.BiomeArray;
 import net.minecraft.world.biome.source.BiomeSource;
 
 /**
- * Specialized replacement for the Biome array in {@link BiomeArray}.
+ * Specialized replacement for the {@link Biome} array in {@link BiomeArray}.
  * <p>
  * Minecraft stores biomes in an array covering the entire biome view of the chunk.
  * This uses 4KB per chunk (1024 entries), but most chunks only contain 1-4 biomes at most.
  * <p>
  * To store this data more efficiently we instead use {@link SingleBiomeArrayData} for biomes with only a single biome
- * or {@link PalettedBiomeArrayData} to represent a Biome array in a compressed paletted view
+ * or {@link PalettedBiomeArrayData} to represent a Biome array in a compressed paletted view.
  */
 public interface BiomeArrayData {
 
+    /**
+     * Writes the data to a new integer array.
+     * @see BiomeArray#toIntArray
+     */
     int[] toIntArray();
 
+    /**
+     * Writes the data to the given {@link PacketByteBuf}.
+     * @see BiomeArray#toPacket
+     */
     void toPacket(PacketByteBuf buf);
 
+    /**
+     * Creates a copy of this {@link BiomeArrayData}.
+     */
     BiomeArrayData copy();
 
+    /**
+     * @return The {@link Biome} at the given biome coordinates.
+     * @see BiomeArray#getBiomeForNoiseGen
+     */
     Biome getBiomeForNoiseGen(int biomeX, int biomeY, int biomeZ);
 
+    /**
+     * @return A {@link BiomeArrayData} from a {@link BiomeSource}.
+     */
     static BiomeArrayData create(ChunkPos pos, BiomeSource source, int length) {
         if (length <= 0) {
             throw new IllegalArgumentException();
@@ -47,6 +65,9 @@ public interface BiomeArrayData {
         return new SingleBiomeArrayData(firstBiome, length);
     }
 
+    /**
+     * @return A {@link BiomeArrayData} from a {@link PacketByteBuf}.
+     */
     static BiomeArrayData create(PacketByteBuf buf, int length) {
         if (length <= 0) {
             throw new IllegalArgumentException();
@@ -62,6 +83,9 @@ public interface BiomeArrayData {
         return new SingleBiomeArrayData(Registry.BIOME.get(firstBiome), length);
     }
 
+    /**
+     * @return A {@link BiomeArrayData} from raw biome id's.
+     */
     static BiomeArrayData create(int[] ids) {
         if (ids.length == 0) {
             throw new IllegalArgumentException();

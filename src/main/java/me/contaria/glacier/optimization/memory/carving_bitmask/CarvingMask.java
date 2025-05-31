@@ -6,7 +6,7 @@ import java.util.BitSet;
 import java.util.stream.IntStream;
 
 /**
- * Specialized BitSet implementation for carving masks, splits up the set into sections that are initialized lazily.
+ * Specialized {@link BitSet} implementation for carving masks, splits up the set into sections that are initialized lazily.
  * <p>
  * Minecraft creates one BitSet with size 65536 per Carver (air, liquid) per ProtoChunk during chunk generation.
  * That is 16KB of data that is discarded once the chunk is fully generated.

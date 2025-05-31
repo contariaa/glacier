@@ -9,6 +9,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Iterator;
 import java.util.Objects;
 
+/**
+ * Iterates over the entries in a {@link GlacierStructureBlockInfoList} by creating a {@link MutableInfo}
+ * which gets populated with the current entry during iteration.
+ */
 public class GlacierStructureBlockInfoIterator implements Iterator<Structure.StructureBlockInfo> {
     private final GlacierStructureBlockInfoList infos;
     private final MutableInfo info;
@@ -72,10 +76,16 @@ public class GlacierStructureBlockInfoIterator implements Iterator<Structure.Str
         return this.info;
     }
 
+    /**
+     * @return The index in the backing {@link GlacierStructureBlockInfoList} corresponding to the given index of this iterator.
+     */
     protected int toIndex(int index) {
         return index;
     }
 
+    /**
+     * @return The size of this iterator.
+     */
     protected int size() {
         return this.infos.size;
     }

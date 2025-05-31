@@ -6,6 +6,9 @@ import net.minecraft.world.biome.Biome;
 
 import java.util.Arrays;
 
+/**
+ * An implementation of {@link BiomeArrayData} with only a single biome.
+ */
 public class SingleBiomeArrayData implements BiomeArrayData {
     private final Biome biome;
     private final int length;

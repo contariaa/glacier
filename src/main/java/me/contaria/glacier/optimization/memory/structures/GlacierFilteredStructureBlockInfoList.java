@@ -8,6 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * A filtered view of the {@link GlacierFilteredStructureBlockInfoList#list}.
+ * The indices of matching entries in the original list are stored in {@link GlacierFilteredStructureBlockInfoList#entries}.
+ */
 public class GlacierFilteredStructureBlockInfoList implements List<Structure.StructureBlockInfo> {
     private final GlacierStructureBlockInfoList list;
     private final int[] entries;

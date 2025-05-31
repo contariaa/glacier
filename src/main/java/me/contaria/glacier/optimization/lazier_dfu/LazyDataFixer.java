@@ -4,6 +4,7 @@ import com.mojang.datafixers.DSL;
 import com.mojang.datafixers.DataFixer;
 import com.mojang.datafixers.schemas.Schema;
 import com.mojang.serialization.Dynamic;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -18,12 +19,13 @@ import java.util.function.Supplier;
  * Compatible with LazyDFU as it simply wraps their builder.
  */
 public class LazyDataFixer implements DataFixer {
+    @NotNull
     private final Supplier<DataFixer> supplier;
     @Nullable
     private DataFixer fixer;
 
-    public LazyDataFixer(Supplier<DataFixer> supplier) {
-        this.supplier = supplier;
+    public LazyDataFixer(@NotNull Supplier<DataFixer> supplier) {
+        this.supplier = Objects.requireNonNull(supplier);
     }
 
     @Override

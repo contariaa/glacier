@@ -11,6 +11,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Set;
 
+/**
+ * A no-op, unmodifiable subclass of {@link SwimNavigation}, used by client-side entities who do not make use of it anyway.
+ * Throws {@link UnsupportedOperationException} for any methods that shouldn't be called by a client-side entity.
+ */
 public class DummySwimNavigation extends SwimNavigation {
     public static final DummySwimNavigation INSTANCE = new DummySwimNavigation();
 

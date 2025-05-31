@@ -8,6 +8,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * An unmodifiable, always empty subclass of {@link TypeFilterableList}, used to lazily initialize entity sections in chunks.
+ */
 public class EmptyTypeFilterableList<T> extends TypeFilterableList<T> {
     public EmptyTypeFilterableList(Class<T> elementType) {
         super(elementType);

@@ -14,6 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 
+/**
+ * Compatibility with TelepathicGrunt's <a href="https://github.com/TelepathicGrunt/StructureLayoutOptimizer">StructureLayoutOptimizer</a> mod.
+ */
 @Pseudo
 @Mixin(targets = "telepathicgrunt/structure_layout_optimizer/fabric/utils/StructureTemplateOptimizer")
 public abstract class StructureLayoutOptimizerMixin {

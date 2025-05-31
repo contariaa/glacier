@@ -18,10 +18,26 @@ import java.util.function.Predicate;
  * Minecraft stores the list of blocks in a structure as a list of {@link Structure.StructureBlockInfo}'s.
  * Since a lot of blocks only differ in their position, we can compress this data into a paletted view.
  * <p>
+ * {@link GlacierStructureBlockInfoList#data} represents the {@link Structure.StructureBlockInfo}'s in a compressed view as a long array.
  * The data is stored as the compressed position (since structures usually don't span the integer limit we can get away with way less bits)
  * followed by the index of the {@link BlockState} and {@link CompoundTag} in their respective palettes.
  * <p>
- * {@link Structure.StructureBlockInfo#pos} is a {@link BlockPos.Mutable} and set during iteration.
+ * Each entry is compressed to a bit sequence of length {@link GlacierStructureBlockInfoList#bitsPerEntry}:
+ * <p>
+ * The first {@link GlacierStructureBlockInfoList#xBits} bits represent the unsigned x coordinate.
+ * The next {@link GlacierStructureBlockInfoList#yBits} bits represent the unsigned y coordinate.
+ * The next {@link GlacierStructureBlockInfoList#zBits} bits represent the unsigned z coordinate.
+ * The next {@link GlacierStructureBlockInfoList#stateBits} bits represent the index of the {@link BlockState} in the {@link GlacierStructureBlockInfoList#states} palette.
+ * The next {@link GlacierStructureBlockInfoList#tagBits} bits represent the index of the {@link CompoundTag} in the {@link GlacierStructureBlockInfoList#tags} palette.
+ * <p>
+ * If the amount of entries in the palette is not a power of 2, the trailing bits of each long will be unused.
+ * <p>
+ * The total amount of StructureBlockInfos represented is stored in {@link GlacierStructureBlockInfoList#size}.
+ * The amount of bits each entry takes up is stored in {@link GlacierStructureBlockInfoList#bitsPerEntry}.
+ * <p>
+ * Most {@link List} functions are unsupported and a mutable {@link Structure.StructureBlockInfo} is created and populated during iteration
+ *
+ * @see GlacierStructureBlockInfoIterator
  */
 public class GlacierStructureBlockInfoList implements List<Structure.StructureBlockInfo> {
     private static final long[] EMPTY_DATA = new long[0];

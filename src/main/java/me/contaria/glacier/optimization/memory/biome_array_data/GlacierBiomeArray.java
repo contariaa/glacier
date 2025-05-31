@@ -6,6 +6,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeArray;
 import net.minecraft.world.biome.source.BiomeSource;
 
+/**
+ * A subclass of {@link BiomeArray}, replacing the {@link Biome} array with a smaller implementation of {@link BiomeArrayData}.
+ */
 public class GlacierBiomeArray extends BiomeArray {
     private final BiomeArrayData data;
 
