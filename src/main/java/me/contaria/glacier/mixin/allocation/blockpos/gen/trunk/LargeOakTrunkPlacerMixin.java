@@ -36,7 +36,7 @@ public abstract class LargeOakTrunkPlacerMixin {
             )
     )
     private BlockPos useMutableBlockPos(BlockPos pos, double x, double y, double z, @Share("mutable") LocalRef<BlockPos.Mutable> mutable) {
-        return mutable.get().set(pos.getX() + x, pos.getY() + y, pos.getZ() + z);
+        return mutable.get().set(MathHelper.floor(pos.getX() + x), MathHelper.floor(pos.getY() + y), MathHelper.floor(pos.getZ() + z));
     }
 
     @Redirect(

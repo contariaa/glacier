@@ -45,6 +45,6 @@ public abstract class BlueIceFeatureMixin {
             )
     )
     private BlockPos useMutableBlockPos(BlockPos pos, int x, int y, int z, @Share("mutable") LocalRef<BlockPos.Mutable> mutable) {
-        return mutable.get().set(pos.getX() + x, pos.getY() + y, pos.getZ() + z);
+        return mutable.get().set(pos, x, y, z);
     }
 }

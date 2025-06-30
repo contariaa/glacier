@@ -29,7 +29,7 @@ public abstract class DungeonFeatureMixin {
             )
     )
     private BlockPos useMutableBlockPos(BlockPos pos, int x, int y, int z, @Share("mutable") LocalRef<BlockPos.Mutable> mutable) {
-        return mutable.get().set(pos.getX() + x, pos.getY() + y, pos.getZ() + z);
+        return mutable.get().set(pos, x, y, z);
     }
 
     @Redirect(
@@ -42,5 +42,16 @@ public abstract class DungeonFeatureMixin {
     private BlockPos useMutableBlockPos(BlockPos pos) {
         ((BlockPos.Mutable) pos).setY(pos.getY() + 1);
         return pos;
+    }
+
+    @Redirect(
+            method = "generate(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Ljava/util/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/DefaultFeatureConfig;)Z",
+            at = @At(
+                    value = "NEW",
+                    target = "(III)Lnet/minecraft/util/math/BlockPos;"
+            )
+    )
+    private BlockPos useMutableBlockPos(int x, int y, int z, @Share("mutable") LocalRef<BlockPos.Mutable> mutable) {
+        return mutable.get().set(x, y, z);
     }
 }
