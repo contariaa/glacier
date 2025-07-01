@@ -1,5 +1,6 @@
 package me.contaria.glacier;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.function.LootFunction;
@@ -13,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Glacier {
     public static final Logger LOGGER = LogManager.getLogger();
+    public static final String VERSION = FabricLoader.getInstance().getModContainer("glacier").orElseThrow(RuntimeException::new).getMetadata().getVersion().getFriendlyString();
 
     public static final Direction[] DIRECTIONS = Direction.values();
     public static final Identifier[] EMPTY_IDENTIFIERS = new Identifier[0];
