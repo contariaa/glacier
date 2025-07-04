@@ -25,7 +25,7 @@ public abstract class AddClimateLayers$AddTemperatureBiomesLayerMixin implements
         }
         int s = parent.sample(this.transformX(x + 1), this.transformZ(z + 2));
         if (s == 3 || s == 4) {
-            return 3;
+            return 2;
         }
         int w = parent.sample(this.transformX(x), this.transformZ(z + 1));
         if (w == 3 || w == 4) {
