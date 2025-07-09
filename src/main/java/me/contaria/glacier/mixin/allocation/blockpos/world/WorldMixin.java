@@ -26,14 +26,14 @@ public abstract class WorldMixin {
         mutable.setX(pos.getX() + 1);
         this.updateNeighbor(pos.east(), block, pos);
         mutable.setX(pos.getX());
-        mutable.setX(pos.getY() - 1);
+        mutable.setY(pos.getY() - 1);
         this.updateNeighbor(pos.down(), block, pos);
-        mutable.setX(pos.getY() + 1);
+        mutable.setY(pos.getY() + 1);
         this.updateNeighbor(pos.up(), block, pos);
-        mutable.setX(pos.getY());
-        mutable.setX(pos.getZ() - 1);
+        mutable.setY(pos.getY());
+        mutable.setZ(pos.getZ() - 1);
         this.updateNeighbor(pos.north(), block, pos);
-        mutable.setX(pos.getZ() + 1);
+        mutable.setZ(pos.getZ() + 1);
         this.updateNeighbor(pos.south(), block, pos);
     }
 
