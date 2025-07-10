@@ -38,7 +38,6 @@ public class GlacierConfig {
         this.addRule("chunk.initial_capacity");
 
         this.addRule("gen");
-        this.addRule("gen.bedrock");
         this.addRule("gen.biome_layers");
         this.addRule("gen.carver");
         this.addRule("gen.feature");
