@@ -62,12 +62,17 @@ public abstract class CaveCarverMixin extends CarverMixin {
             double z = chunkZ * 16 + random.nextInt(16);
             int tunnels = 1;
             if (random.nextInt(4) == 0) {
-                this.carveCave(chunk, function, random.nextLong(), seaLevel, l, m, x, y, z, 1.0F + random.nextFloat() * 6.0F, 0.5, bitSet, mutable, mutable2, mutable3, mutableBoolean, carverRandom);
+                float yaw = 1.0F + random.nextFloat() * 6.0F;
+                this.carveCave(chunk, function, random.nextLong(), seaLevel, l, m, x, y, z, yaw, 0.5, bitSet, mutable, mutable2, mutable3, mutableBoolean, carverRandom);
                 tunnels += random.nextInt(4);
             }
 
             for (int tunnel = 0; tunnel < tunnels; tunnel++) {
-                this.carveTunnels(chunk, function, random.nextLong(), seaLevel, l, m, x, y, z, this.getTunnelSystemWidth(random), random.nextFloat() * (float) (Math.PI * 2), (random.nextFloat() - 0.5F) / 4.0F, 0, branches - random.nextInt(branches / 4), this.getTunnelSystemHeightWidthRatio(), bitSet, mutable, mutable2, mutable3, mutableBoolean, carverRandom, tunnelRandom);
+                float yaw = random.nextFloat() * (float) (Math.PI * 2);
+                float pitch = (random.nextFloat() - 0.5F) / 4.0F;
+                float width = this.getTunnelSystemWidth(random);
+                int branchCount = branches - random.nextInt(branches / 4);
+                this.carveTunnels(chunk, function, random.nextLong(), seaLevel, l, m, x, y, z, width, yaw, pitch, 0, branchCount, this.getTunnelSystemHeightWidthRatio(), bitSet, mutable, mutable2, mutable3, mutableBoolean, carverRandom, tunnelRandom);
             }
         }
 
