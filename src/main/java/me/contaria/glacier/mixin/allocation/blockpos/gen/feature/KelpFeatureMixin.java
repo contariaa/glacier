@@ -24,10 +24,11 @@ public abstract class KelpFeatureMixin {
             method = "generate(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Ljava/util/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/DefaultFeatureConfig;)Z",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/util/math/BlockPos;up()Lnet/minecraft/util/math/BlockPos;"
+                    target = "Lnet/minecraft/util/math/BlockPos;up()Lnet/minecraft/util/math/BlockPos;",
+                    ordinal = 1
             )
     )
     private BlockPos useMutableBlockPos(BlockPos pos) {
-        return ((BlockPos.Mutable) pos).set(pos.getX(), pos.getY() - 1, pos.getZ());
+        return ((BlockPos.Mutable) pos).set(pos.getX(), pos.getY() + 1, pos.getZ());
     }
 }
