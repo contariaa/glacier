@@ -65,7 +65,7 @@ public abstract class SpringFeatureMixin {
             return false;
         }
 
-        state = world.getBlockState(mutable.set(pos.getX() - 1, pos.getY(), pos.getZ() - 1));
+        state = world.getBlockState(mutable.set(pos.getX(), pos.getY(), pos.getZ() - 1));
         if (config.validBlocks.contains(state.getBlock())) {
             valid++;
         }
