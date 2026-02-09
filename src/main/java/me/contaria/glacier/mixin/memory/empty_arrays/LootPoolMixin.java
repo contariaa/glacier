@@ -1,6 +1,7 @@
 package me.contaria.glacier.mixin.memory.empty_arrays;
 
-import me.contaria.glacier.Glacier;
+import me.contaria.glacier.optimization.memory.empty_arrays.LootConditionArray;
+import me.contaria.glacier.optimization.memory.empty_arrays.LootFunctionArray;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.function.LootFunction;
@@ -18,7 +19,7 @@ public abstract class LootPoolMixin {
     )
     private static LootCondition[] deduplicateEmptyConditionArray(LootCondition[] conditions) {
         if (conditions != null && conditions.length == 0) {
-            return Glacier.EMPTY_CONDITIONS;
+            return LootConditionArray.EMPTY;
         }
         return conditions;
     }
@@ -30,7 +31,7 @@ public abstract class LootPoolMixin {
     )
     private static LootFunction[] deduplicateEmptyFunctionArray(LootFunction[] functions) {
         if (functions != null && functions.length == 0) {
-            return Glacier.EMPTY_FUNCTIONS;
+            return LootFunctionArray.EMPTY;
         }
         return functions;
     }

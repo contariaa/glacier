@@ -1,6 +1,6 @@
 package me.contaria.glacier.mixin.memory.empty_arrays;
 
-import me.contaria.glacier.Glacier;
+import me.contaria.glacier.optimization.memory.empty_arrays.LootConditionArray;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.entry.LootPoolEntry;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +17,7 @@ public abstract class LootPoolEntryMixin {
     )
     private static LootCondition[] deduplicateEmptyConditionArray(LootCondition[] conditions) {
         if (conditions != null && conditions.length == 0) {
-            return Glacier.EMPTY_CONDITIONS;
+            return LootConditionArray.EMPTY;
         }
         return conditions;
     }

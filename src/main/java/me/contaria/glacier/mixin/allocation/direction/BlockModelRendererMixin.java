@@ -1,6 +1,6 @@
 package me.contaria.glacier.mixin.allocation.direction;
 
-import me.contaria.glacier.Glacier;
+import me.contaria.glacier.optimization.allocation.direction.DirectionValues;
 import net.minecraft.client.render.block.BlockModelRenderer;
 import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,6 +22,6 @@ public abstract class BlockModelRendererMixin {
             )
     )
     private Direction[] reuseDirectionValues() {
-        return Glacier.DIRECTIONS;
+        return DirectionValues.DIRECTIONS;
     }
 }

@@ -1,6 +1,6 @@
 package me.contaria.glacier.mixin.allocation.direction;
 
-import me.contaria.glacier.Glacier;
+import me.contaria.glacier.optimization.allocation.direction.DirectionValues;
 import net.minecraft.client.render.model.BakedQuadFactory;
 import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,7 +21,7 @@ public abstract class BakedQuadFactoryMixin {
             )
     )
     private Direction[] reuseDirectionValues() {
-        return Glacier.DIRECTIONS;
+        return DirectionValues.DIRECTIONS;
     }
 
     @Redirect(
@@ -32,6 +32,6 @@ public abstract class BakedQuadFactoryMixin {
             )
     )
     private static Direction[] reuseDirectionValues2() {
-        return Glacier.DIRECTIONS;
+        return DirectionValues.DIRECTIONS;
     }
 }

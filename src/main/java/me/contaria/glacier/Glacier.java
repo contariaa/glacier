@@ -1,13 +1,8 @@
 package me.contaria.glacier;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.condition.LootCondition;
-import net.minecraft.loot.function.LootFunction;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.chunk.ProtoChunk;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,12 +10,6 @@ import org.apache.logging.log4j.Logger;
 public class Glacier {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String VERSION = FabricLoader.getInstance().getModContainer("glacier").orElseThrow(RuntimeException::new).getMetadata().getVersion().getFriendlyString();
-
-    public static final Direction[] DIRECTIONS = Direction.values();
-    public static final Identifier[] EMPTY_IDENTIFIERS = new Identifier[0];
-    public static final LootCondition[] EMPTY_CONDITIONS = new LootCondition[0];
-    public static final LootFunction[] EMPTY_FUNCTIONS = new LootFunction[0];
-    public static final LootPool[] EMPTY_POOLS = new LootPool[0];
 
     /**
      * Mutable joinBlockPos to reduce BlockPos allocations.

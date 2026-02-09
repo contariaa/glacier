@@ -1,6 +1,6 @@
 package me.contaria.glacier.mixin.memory.empty_arrays;
 
-import me.contaria.glacier.Glacier;
+import me.contaria.glacier.optimization.memory.empty_arrays.IdentifierArray;
 import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +18,7 @@ public abstract class AdvancementRewardsMixin {
     )
     private static Identifier[] deduplicateEmptyLootArray(Identifier[] loot) {
         if (loot != null && loot.length == 0) {
-            return Glacier.EMPTY_IDENTIFIERS;
+            return IdentifierArray.EMPTY;
         }
         return loot;
     }
@@ -31,7 +31,7 @@ public abstract class AdvancementRewardsMixin {
     )
     private static Identifier[] deduplicateEmptyRecipesArray(Identifier[] recipes) {
         if (recipes != null && recipes.length == 0) {
-            return Glacier.EMPTY_IDENTIFIERS;
+            return IdentifierArray.EMPTY;
         }
         return recipes;
     }

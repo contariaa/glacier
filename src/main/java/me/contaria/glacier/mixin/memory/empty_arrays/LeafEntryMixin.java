@@ -1,6 +1,6 @@
 package me.contaria.glacier.mixin.memory.empty_arrays;
 
-import me.contaria.glacier.Glacier;
+import me.contaria.glacier.optimization.memory.empty_arrays.LootFunctionArray;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.LootFunction;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +17,7 @@ public abstract class LeafEntryMixin {
     )
     private static LootFunction[] deduplicateEmptyFunctionArray(LootFunction[] functions) {
         if (functions != null && functions.length == 0) {
-            return Glacier.EMPTY_FUNCTIONS;
+            return LootFunctionArray.EMPTY;
         }
         return functions;
     }

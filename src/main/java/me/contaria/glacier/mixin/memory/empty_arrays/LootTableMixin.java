@@ -1,6 +1,7 @@
 package me.contaria.glacier.mixin.memory.empty_arrays;
 
-import me.contaria.glacier.Glacier;
+import me.contaria.glacier.optimization.memory.empty_arrays.LootFunctionArray;
+import me.contaria.glacier.optimization.memory.empty_arrays.LootPoolArray;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.function.LootFunction;
@@ -18,7 +19,7 @@ public abstract class LootTableMixin {
     )
     private static LootPool[] deduplicateEmptyPoolArray(LootPool[] pools) {
         if (pools != null && pools.length == 0) {
-            return Glacier.EMPTY_POOLS;
+            return LootPoolArray.EMPTY;
         }
         return pools;
     }
@@ -30,7 +31,7 @@ public abstract class LootTableMixin {
     )
     private static LootFunction[] deduplicateEmptyFunctionArray(LootFunction[] functions) {
         if (functions != null && functions.length == 0) {
-            return Glacier.EMPTY_FUNCTIONS;
+            return LootFunctionArray.EMPTY;
         }
         return functions;
     }
